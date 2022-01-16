@@ -7,6 +7,7 @@ import SEARCH_DEFAULT from '../../graphql/queries/search-default.query';
 
 import './results.styles.scss';
 import Repository from '../repository/repository.component';
+import SearchInfo from '../search-info/search-info.component';
 
 const Results = () => {
   const { query, defaultQuery, setQuery } = useContext(SearchContext);
@@ -32,15 +33,16 @@ const Results = () => {
 
   return (
     <div className='results'>
-      <div className='info-search'>
-        <div className='info-results'></div>
-        <div className='query-reset'>
-          <button onClick={() => setQuery('')}>Reset</button>
+      <SearchInfo />
+      {data.search.repositoryCount > 0 ? (
+        data.search.edges.map(({ node }) => (
+          <Repository key={node.id} {...node} />
+        ))
+      ) : (
+        <div class='no-results'>
+          <p>{user} doesn’t have any repositories that match.</p>
         </div>
-      </div>
-      {data.search.edges.map(({ node }) => (
-        <Repository key={node.id} {...node} />
-      ))}
+      )}
     </div>
   );
 };
