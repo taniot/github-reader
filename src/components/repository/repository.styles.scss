@@ -36,19 +36,29 @@
   .repo-topics {
     display: flex;
     gap: 5px;
+    margin-top: 15px;
+    flex-wrap: wrap;
     .topic-tag {
       display: inline-block;
       padding: 0 7px;
       font-size: 12px;
+      font-weight: 600;
       line-height: 18px;
       border-radius: 2em;
       padding-right: 10px;
       padding-left: 10px;
       line-height: 22px;
       color: #0969da;
-      background-color: var(--color-accent-subtle);
+      background-color: #ddf4ff;
       border: 1px solid rgba(0, 0, 0, 0);
       margin: 0 0.125em 0.333em 0;
+      text-decoration: none;
+      white-space: nowrap;
+      &:hover,
+      &:active {
+        background-color: #0969da;
+        color: #ffffff;
+      }
     }
   }
 }

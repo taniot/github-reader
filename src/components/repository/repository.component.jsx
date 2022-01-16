@@ -38,6 +38,7 @@ const Repository = (repo) => {
           ))}
         </div>
       )}
+      <div className='repo-other-info'></div>
     </div>
   );
 };
