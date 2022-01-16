@@ -10,7 +10,7 @@ import Repository from '../repository/repository.component';
 import SearchInfo from '../search-info/search-info.component';
 
 const Results = () => {
-  const { query, defaultQuery, setQuery } = useContext(SearchContext);
+  const { query, defaultQuery } = useContext(SearchContext);
   const user = useContext(UserContext);
 
   const searchQuery = [query, `user:${user}`, defaultQuery].join(' ');
@@ -33,7 +33,7 @@ const Results = () => {
 
   return (
     <div className='results'>
-      <SearchInfo />
+      <SearchInfo data={data} />
       {data.search.repositoryCount > 0 ? (
         data.search.edges.map(({ node }) => (
           <Repository key={node.id} {...node} />

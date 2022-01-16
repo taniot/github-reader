@@ -1,15 +1,29 @@
 import React, { useContext } from 'react';
+import { XCircleFillIcon } from '@primer/octicons-react';
 import SearchContext from '../../contexts/search.context';
-const SearchInfo = () => {
+
+import './search-info.styles.scss';
+const SearchInfo = ({ data }) => {
   const { query, setQuery } = useContext(SearchContext);
-  console.log({ query });
+  const { repositoryCount } = data.search;
   return (
-    <div className='search-info'>
-      <div className='info-results'></div>
-      <div className='query-reset'>
-        <button onClick={() => setQuery('')}>Reset</button>
-      </div>
-    </div>
+    <>
+      {query !== '' && (
+        <div className='search-info'>
+          <div className='info-results'>
+            <strong>{repositoryCount}</strong>
+            {repositoryCount > 1 ? ` results ` : ` result`} for repositories
+            matching <strong>{query}</strong>
+          </div>
+          <div className='query-reset'>
+            <button onClick={() => setQuery('')}>
+              <XCircleFillIcon size={16} />
+              <span>Clear filter</span>
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
