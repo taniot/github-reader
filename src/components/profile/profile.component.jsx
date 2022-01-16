@@ -1,19 +1,46 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useQuery } from '@apollo/client';
 import './profile.styles.scss';
+import UserContext from '../../contexts/user.context';
+import QUERY_USER from '../../graphql/queries/user';
 
-const Profile = () => (
-  <section className='profile-container'>
-    <div style={{ display: 'flex' }}>
-      <div className='profile-avatar'>Avatar</div>
-      <div className='profile-info'>
-        <h1>
-          <span className='fullName'>Name Surname</span>
-          <span className='nickName'>nickname</span>
-        </h1>
+const Profile = () => {
+  const nickName = useContext(UserContext);
+  const { loading, error, data } = useQuery(QUERY_USER, {
+    variables: { login: nickName },
+  });
 
-        <div className='profile-bio'>bio</div>
+  if (loading) return <div>Loading</div>;
+  if (error) {
+    return <div>Error</div>;
+  }
+
+  const { user } = data;
+  return (
+    <section className='profile-container'>
+      <div className='profile'>
+        <div className='profile-avatar'>
+          <figure>
+            <img
+              className='avatar-image'
+              src={user.avatarUrl}
+              alt={user.name}
+            />
+          </figure>
+        </div>
+        <div className='profile-info'>
+          <h1>
+            <span className='fullName'>{user.name}</span>
+            <span className='nickName'>{user.login}</span>
+          </h1>
+
+          <div
+            className='profile-bio'
+            dangerouslySetInnerHTML={{ __html: user.bioHTML }}
+          />
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 export default Profile;

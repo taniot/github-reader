@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //Components
 import Layout from './components/layout/layout.component';
 import Profile from './components/profile/profile.component';
 import ReposList from './components/repos-list/repos-list.component';
 
-function App() {
+import UserContext from './contexts/user.context';
+
+const App = () => {
+  const [nickname] = useState('taniot');
+
   return (
-    <Layout>
-      <h1>MVST Github Light</h1>
-      <Profile />
-      <ReposList />
-    </Layout>
+    <UserContext.Provider value={nickname}>
+      <Layout>
+        <Profile />
+        <ReposList />
+      </Layout>
+    </UserContext.Provider>
   );
-}
+};
 
 export default App;
