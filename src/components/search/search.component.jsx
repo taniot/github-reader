@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { SearchContext } from '../repositories/repositories.component';
+import SearchContext from '../../contexts/search.context';
 
 import './search.styles.scss';
 
 const Search = () => {
-  const { query, handleSearch, setQuery } = useContext(SearchContext);
+  const { query, handleSearch } = useContext(SearchContext);
 
   return (
     <div className='search'>
@@ -17,12 +17,6 @@ const Search = () => {
           value={query}
           onChange={handleSearch}
         />
-      </div>
-      <div className='info-search'>
-        <div className='info-results'></div>
-        <div className='query-reset'>
-          <button onClick={() => setQuery('')}>Reset</button>
-        </div>
       </div>
     </div>
   );
