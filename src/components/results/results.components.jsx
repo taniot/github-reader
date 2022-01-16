@@ -6,6 +6,7 @@ import UserContext from '../../contexts/user.context';
 import SEARCH_DEFAULT from '../../graphql/queries/search-default.query';
 
 import './results.styles.scss';
+import Repository from '../repository/repository.component';
 
 const Results = () => {
   const { query, defaultQuery, setQuery } = useContext(SearchContext);
@@ -37,14 +38,9 @@ const Results = () => {
           <button onClick={() => setQuery('')}>Reset</button>
         </div>
       </div>
-      {data.search.edges.map(({ node: { id, name, description } }) => {
-        return (
-          <div key={id}>
-            <h3>{name}</h3>
-            <p>{description}</p>
-          </div>
-        );
-      })}
+      {data.search.edges.map(({ node }) => (
+        <Repository key={node.id} {...node} />
+      ))}
     </div>
   );
 };

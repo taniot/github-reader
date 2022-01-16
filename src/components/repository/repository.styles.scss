@@ -1,0 +1,54 @@
+.repository {
+  padding-bottom: 20px;
+  border-bottom: 1px dotted #ccc;
+  .repo-header {
+    h3 {
+      a,
+      a:visited {
+        font-size: 20px;
+        color: #0969da;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span {
+        color: #57606a;
+        display: inline-block;
+        padding: 0 7px;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 18px;
+        border: 1px solid #d0d7de;
+        border-radius: 2em;
+        vertical-align: middle;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .repo-info {
+    .repo-description {
+      color: #57606a;
+      font-size: 0.9rem;
+    }
+  }
+  .repo-topics {
+    display: flex;
+    gap: 5px;
+    .topic-tag {
+      display: inline-block;
+      padding: 0 7px;
+      font-size: 12px;
+      line-height: 18px;
+      border-radius: 2em;
+      padding-right: 10px;
+      padding-left: 10px;
+      line-height: 22px;
+      color: #0969da;
+      background-color: var(--color-accent-subtle);
+      border: 1px solid rgba(0, 0, 0, 0);
+      margin: 0 0.125em 0.333em 0;
+    }
+  }
+}

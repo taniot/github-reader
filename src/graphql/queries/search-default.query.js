@@ -14,10 +14,23 @@ const SEARCH_DEFAULT = gql`
           ... on Repository {
             id
             name
-            description
+            shortDescriptionHTML
             updatedAt
             url
             viewerHasStarred
+            visibility
+            isPrivate
+            repositoryTopics(first: 10) {
+              totalCount
+              nodes {
+                url
+                topic {
+                  id
+                  name
+                }
+              }
+            }
+
             primaryLanguage {
               name
               color

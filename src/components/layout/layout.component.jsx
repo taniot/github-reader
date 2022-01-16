@@ -4,7 +4,7 @@ import './layout.styles.scss';
 const Layout = ({ children }) => (
   <div className='layout'>
     <header></header>
-    {children}
+    <section className='children'>{children}</section>
   </div>
 );
 
