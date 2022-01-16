@@ -1,16 +1,17 @@
 import React from 'react';
-import './App.css';
+
 //Components
+import Layout from './components/layout/layout.component';
 import Profile from './components/profile/profile.component';
 import ReposList from './components/repos-list/repos-list.component';
 
 function App() {
   return (
-    <div className='App'>
+    <Layout>
       <h1>MVST Github Light</h1>
       <Profile />
       <ReposList />
-    </div>
+    </Layout>
   );
 }
 

@@ -1,0 +1,36 @@
+.profile-container {
+  padding: 20px;
+  border-left: 1px dotted #cecece;
+  border-right: 1px dotted #cecece;
+  .profile-avatar {
+    max-width: 290px;
+  }
+  .profile-info {
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1;
+      span {
+        display: block;
+        &.fullName {
+          font-size: 26px;
+          line-height: 1;
+        }
+
+        &.nickName {
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 1;
+          color: #57606a;
+        }
+      }
+    }
+
+    .profile-bio {
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+}
