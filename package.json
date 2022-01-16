@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.7",
     "@fontsource/roboto": "^4.5.1",
+    "@primer/octicons-react": "^16.2.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "mini-css-extract-plugin": "2.4.7"
   }
 }
