@@ -4,17 +4,26 @@ import { SearchContext } from '../repositories/repositories.component';
 import './search.styles.scss';
 
 const Search = () => {
-  const { query, debounceSearch } = useContext(SearchContext);
+  const { query, handleSearch, setQuery } = useContext(SearchContext);
 
   return (
     <div className='search'>
-      <input
-        name='search'
-        className='form-control'
-        placeholder='Find a repository...'
-        type='text'
-        onChange={debounceSearch}
-      />
+      <div className='input-search'>
+        <input
+          name='query'
+          className='form-control'
+          placeholder='Find a repository...'
+          type='text'
+          value={query}
+          onChange={handleSearch}
+        />
+      </div>
+      <div className='info-search'>
+        <div className='info-results'></div>
+        <div className='query-reset'>
+          <button onClick={() => setQuery('')}>Reset</button>
+        </div>
+      </div>
     </div>
   );
 };
