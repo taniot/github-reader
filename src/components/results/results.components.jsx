@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import SearchContext from '../../contexts/search.context';
 import UserContext from '../../contexts/user.context';
@@ -8,27 +8,27 @@ import SEARCH_DEFAULT from '../../graphql/queries/search-default.query';
 import './results.styles.scss';
 import Repository from '../repository/repository.component';
 import SearchInfo from '../search-info/search-info.component';
+import Loader from '../loader/loader.component';
 
 const Results = () => {
   const { query, defaultQuery } = useContext(SearchContext);
   const user = useContext(UserContext);
+  const [searchQuery, setSearchQuery] = useState(defaultQuery);
 
-  const searchQuery = [query, `user:${user}`, defaultQuery].join(' ');
+  useEffect(() => {
+    setSearchQuery(`${query} ${defaultQuery}`);
+  }, [query, user, defaultQuery]);
+
   const { loading, error, data } = useQuery(SEARCH_DEFAULT, {
-    variables: { query: searchQuery },
+    variables: { query: `user:${user} ${searchQuery}` },
   });
 
   if (loading) {
-    console.log({ loading });
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (error) {
-    console.log({ error });
-    return <p>error...</p>;
-  }
-  if (data) {
-    console.log({ data });
+    return null;
   }
 
   return (
@@ -39,7 +39,7 @@ const Results = () => {
           <Repository key={node.id} {...node} />
         ))
       ) : (
-        <div class='no-results'>
+        <div className='no-results'>
           <p>{user} doesn’t have any repositories that match.</p>
         </div>
       )}
