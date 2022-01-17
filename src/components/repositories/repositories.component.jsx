@@ -1,12 +1,11 @@
 import React, { useState, useMemo } from 'react';
-
-import './repositories.styles.scss';
-
-import Search from '../search/search.component';
+//components
 import Results from '../results/results.components';
-
+import Search from '../search/search.component';
+//contexts
 import SearchContext from '../../contexts/search.context';
-
+//styles
+import './repositories.styles.scss';
 const Repositories = () => {
   const [query, setQuery] = useState('');
   const [defaultQuery] = useState('in:name,description fork:true');

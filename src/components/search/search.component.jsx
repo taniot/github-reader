@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+//contexts
 import SearchContext from '../../contexts/search.context';
-
+//styles
 import './search.styles.scss';
-
 const Search = () => {
   const { query, handleSearch } = useContext(SearchContext);
 

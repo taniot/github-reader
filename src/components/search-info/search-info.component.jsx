@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { XCircleFillIcon } from '@primer/octicons-react';
+//contexts
 import SearchContext from '../../contexts/search.context';
-
+//styles
 import './search-info.styles.scss';
 const SearchInfo = ({ data }) => {
   const { query, setQuery } = useContext(SearchContext);

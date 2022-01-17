@@ -1,19 +1,26 @@
 
-# MVST - Github Light
+# MVST - Github Light Reader
 
-Github Reader Light is a web app in React that allows you to view a user's repositories and filter them by name.
-
-
-## Tech Stack
-
-**Client:** React, SCSS, GraphQL
+Github Light Reader is a web app in React that allows you to view a user's repositories and filter them by name. At the moment, the application uses a default user profile for the consultation and search of repositories.
 
 
+### Requirements
 
+* [x]  The application must be written using React
+* [x]  You are required to use git for versioning
+* [x]  Feel free to use any additional plugin
+* [x]  Google Chrome is the testing browser
 
 ## Demo
 
 https://mvst-github-reader.netlify.app/
+
+
+## Tech Stack
+
+**Client:** React, Sass, GraphQL
+
+
 
 
 ## Run Locally
@@ -53,27 +60,21 @@ This is Github's Personal Access Token, which is needed to access the Github Gra
 
 Remember not to include your .env files in your repository (i.e. add them to your .gitignore!).
 
-## Features
+## Future Improvements
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Search user
+- Debouncing research for better use of resources
+- Pagination
+- Filter by tag and language
+- Sort by last updated, name and stars
 
+## Feedback
 
-## Optimizations
+For this challenge I chose to implement the Github GraphQL API directly from the frontend in order to have a good balance between time and result, but it would be better to have a backend that consults external APIs in order to make the frontend more usable and with reusable patterns.
 
-What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
-
+The system uses two GraphQL queries: the first one retrieves data from the user to populate the profile, the second one is the search query. Note that the data in the first call contains a list of the user's repositories, but for search purposes - unless you want to filter locally via Array.filter - it is not very useful. I preferred to exploit the search capabilities provided by Github so that, in a potential development of new features such as "search by tag", "search by language" and "sorting", the same search model could be reused.
 
 ## Authors
 
-- [@taniot](https://www.github.com/taniot)
-
-
-## Roadmap
-
-- Additional browser support
-
-- Add more integrations
+- [Gaetano Frascolla](https://www.github.com/taniot)
 

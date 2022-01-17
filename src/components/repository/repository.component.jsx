@@ -1,6 +1,6 @@
 import React from 'react';
+//styles
 import './repository.styles.scss';
-
 const Repository = (repo) => {
   const { name, shortDescriptionHTML, visibility, url, repositoryTopics } =
     repo;
@@ -17,7 +17,7 @@ const Repository = (repo) => {
             itemProp='name codeRepository'
           >
             {name}
-          </a>{' '}
+          </a>
           <span>{visibility}</span>
         </h3>
       </div>

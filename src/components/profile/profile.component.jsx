@@ -1,22 +1,11 @@
 import React, { useContext } from 'react';
-import { useQuery } from '@apollo/client';
+
 import './profile.styles.scss';
 import UserContext from '../../contexts/user.context';
-import QUERY_USER from '../../graphql/queries/user';
-import Loader from '../loader/loader.component';
 
 const Profile = () => {
-  const nickName = useContext(UserContext);
-  const { loading, error, data } = useQuery(QUERY_USER, {
-    variables: { login: nickName },
-  });
-
-  if (loading) return <Loader />;
-  if (error) {
-    return <div>Error</div>;
-  }
-
-  const { user } = data;
+  const user = useContext(UserContext);
+  console.log({ user });
   return (
     <section className='profile-container'>
       <div className='profile'>
