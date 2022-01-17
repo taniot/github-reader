@@ -2,10 +2,8 @@ import React from 'react';
 import './repository.styles.scss';
 
 const Repository = (repo) => {
-  //console.log({ repo });
   const { name, shortDescriptionHTML, visibility, url, repositoryTopics } =
     repo;
-  console.log(repositoryTopics.nodes);
   return (
     <div className='repository'>
       <div className='repo-header'>

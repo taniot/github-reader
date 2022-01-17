@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import './profile.styles.scss';
 import UserContext from '../../contexts/user.context';
 import QUERY_USER from '../../graphql/queries/user';
+import Loader from '../loader/loader.component';
 
 const Profile = () => {
   const nickName = useContext(UserContext);
@@ -10,7 +11,7 @@ const Profile = () => {
     variables: { login: nickName },
   });
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <Loader />;
   if (error) {
     return <div>Error</div>;
   }

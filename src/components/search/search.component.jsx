@@ -11,7 +11,6 @@ const Search = () => {
       <div className='input-search'>
         <input
           name='query'
-          className='form-control'
           placeholder='Find a repository...'
           type='text'
           value={query}
