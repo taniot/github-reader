@@ -1,5 +1,5 @@
 
-# MVST - Github Light Reader
+# Github Light Reader
 
 Github Light Reader is a web app in React that allows you to view a user's repositories and filter them by name. At the moment, the application uses a default user profile for the consultation and search of repositories.
 
